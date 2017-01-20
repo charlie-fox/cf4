@@ -1,0 +1,258 @@
+// Base Styles
+@import "normalize";
+
+// Layout Styles
+@import "main";
+
+
+
+$ice: #F2F4F7;
+$steel:#54606D;
+$viking: #52D2DF;
+$bunker: #0E1116;
+$vulcan: #0D1824;
+
+$topbar-height: 60px;
+$gutter: 2vw;
+
+.html {
+    height: 100%;
+}
+
+.body {
+    height: 100%;
+}
+
+
+p {
+    font-family: "proxima-nova",sans-serif;
+    font-weight: 100;
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: auto;
+}
+
+.vcenter {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.row {
+    overflow: auto;
+}
+
+.col-third {
+    float: left;
+    width: 33.33%;
+    padding: $gutter/2;
+
+    &::first-child {
+        padding-left: 0;
+    }
+    &::last-child {
+        padding-right: 0;
+    }    
+}
+
+.hero {
+    display: block;
+    height: calc(100vh - 175px);
+    height: 100vh;
+    width: 100vw;
+    background-color: $ice;
+    position: relative;
+
+    .row {
+        overflow: visible;
+    }
+
+    .container {
+        overflow: visible;
+    }
+
+    div.geometry {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .hero-content {
+        position: relative;
+        // top: 33vh;
+        // transform: translateY(-50%);
+        margin-left: 5vw;
+        overflow: auto;
+        opacity: 0;
+        visibility: hidden;
+        transform-origin: left center;
+
+        &:after {
+            clear: both;
+        }
+
+        h1 {
+            font-size: 60px;
+            font-family: "proxima-nova",sans-serif;
+            font-weight: 900;
+            color: lighten(desaturate($vulcan, 0),10%);
+            letter-spacing: -0.03em;
+            line-height: 0.9em;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            font-family: "proxima-nova",sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: lighten(desaturate($vulcan, 0),10%);
+            line-height: 1.5em;
+            margin: 0;
+            padding: 0;    
+            font-weight: 800;     
+            margin-left: 5px; 
+            display: inline-block;
+            opacity: 0.5;
+        }
+
+        .logo-large {
+            float: left;
+
+            polyline {
+                stroke: lighten(desaturate($vulcan, 0),10%);
+            }
+        }
+
+        .info {
+            float: left;
+            padding: 20px 0 0 10px;            
+
+        }
+    }
+}
+
+svg.geometry {
+    opacity: 0.1;
+}
+
+.capabilities {
+    background-color: darken($vulcan,3%);
+    max-height: 0px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    // padding: 2vh 0;
+    // color: $ice;
+    font-size: 14px;
+    font-family: "mr-eaves-sans",sans-serif;
+    font-weight: 100;
+    color: white;
+    border-bottom: 1px solid darken($vulcan,10%);
+
+    .col-third {
+        opacity: 0;
+        visibility: hidden;
+        margin: 2vh 0;
+    }
+    
+    p {
+        line-height: 1.5em;
+        // mix-blend-mode: overlay;
+        color: lighten($vulcan, 60%);
+        opacity: 0.7;   
+    }
+}
+
+.works {
+    min-height: 100vh;
+    background-color: $vulcan;
+
+}
+
+.topbar {
+    // height: 60px;
+    background-color: white;
+    position: fixed;
+    top: -$topbar-height;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 0 1px darken($ice,30%);
+    display: flex;
+    justify-content: space-between;
+    font-family: "proxima-nova",sans-serif;
+    z-index: 10;
+
+    a {
+        display: inline-block;
+        flex-grow: 1;
+        line-height: $topbar-height;
+        font-size: 16px;
+        color: $vulcan;
+        text-decoration: none;
+        transition: color .3s;
+        &:hover {
+            color: $viking;
+        }
+    }
+
+    .logo-container, .nav-container {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+    }
+
+    .logo-container {
+        &:hover {
+            .logo {
+                polyline {
+                    stroke: $viking;
+                }
+            }
+            .logo-text {
+                a {
+                    color: $viking;
+                }
+            }
+        }
+
+        .logo {
+            vertical-align: middle;
+            margin: 0 $gutter/3 0 $gutter;
+            display: inline-block;
+            polyline {
+                stroke: $vulcan;
+                transition: stroke .3s;
+            }
+        }  
+        .logo-text {
+            display: inline-block;
+        }         
+    }
+
+    .nav-container {
+        margin-right: $gutter/2;
+        a {
+            padding: 0 $gutter/2;
+        }
+    }
+
+
+
+ 
+}
